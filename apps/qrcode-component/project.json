@@ -9,7 +9,8 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/qrcode-component"
+        "outputPath": "dist/apps/qrcode-component",
+        "postcssConfig": "apps/qrcode-component/postcss.config.js"
       },
       "configurations": {
         "development": {

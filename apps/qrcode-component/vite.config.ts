@@ -16,8 +16,38 @@ export default defineConfig({
     host: 'localhost',
   },
 
+  optimizeDeps: {
+    esbuildOptions: {
+      target: 'es2020',
+    },
+  },
+
+  esbuild: {
+    // https://github.com/vitejs/vite/issues/8644#issuecomment-1159308803
+    logOverride: { 'this-is-undefined-in-esm': 'silent' },
+  },
+
   plugins: [
-    react(),
+    react({
+      babel: {
+        plugins: [
+          'babel-plugin-macros',
+          [
+            '@emotion/babel-plugin-jsx-pragmatic',
+            {
+              export: 'jsx',
+              import: '__cssprop',
+              module: '@emotion/react',
+            },
+          ],
+          [
+            '@babel/plugin-transform-react-jsx',
+            { runtime: 'automatic', importSource: '@emotion/react' },
+            'twin.macro',
+          ],
+        ],
+      },
+    }),
     viteTsConfigPaths({
       root: '../../',
     }),
