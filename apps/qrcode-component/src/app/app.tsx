@@ -1,17 +1,12 @@
-import styled from '@emotion/styled';
+import tw from 'twin.macro';
+import './styles.css';
 
-import NxWelcome from './nx-welcome';
-
-const StyledApp = styled.div`
-  // Your style here
+const StyledApp = tw.div`
+  bg-indigo-50
 `;
 
 export function App() {
-  return (
-    <StyledApp>
-      <NxWelcome title="qrcode-component" />
-    </StyledApp>
-  );
+  return <StyledApp></StyledApp>;
 }
 
 export default App;

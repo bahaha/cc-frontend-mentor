@@ -16,5 +16,6 @@
     "baseUrl": ".",
     "paths": {}
   },
+  "include": ["types"],
   "exclude": ["node_modules", "tmp"]
 }
